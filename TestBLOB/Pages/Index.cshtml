@@ -1,0 +1,32 @@
+﻿@page
+@using TestBLOB.model
+@model IndexModel
+@{
+    ViewData["Title"] = "SOLBÆR";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Dette er Solbær siden</h1>
+    <table>
+        <thead>
+        <tr>
+        <th>Billed-Tekst</th>
+        <th>Billed</th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach (Foto f in @Model.Fotos)
+            {
+                <tr>
+                    <td>@f.Beskrivelse</td>
+                    @{ String file = "data:image/jpeg;base64," + Convert.ToBase64String(f.Foto1);}
+                    <td style="height: 200px; width: 300px"><img src="@file" /></td>
+                </tr>
+
+                        }
+        </tbody>
+    </table>
+
+
+
+</div>
